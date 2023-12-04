@@ -35,7 +35,6 @@ resource "github_branch_protection_v3" "branch_protect_main" {
 
   required_status_checks {
     strict   = true
-    contexts = []
   }
 
   required_pull_request_reviews {
@@ -55,7 +54,6 @@ resource "github_branch_protection_v3" "branch_protect_homol" {
 
   required_status_checks {
     strict   = true
-    contexts = []
   }
 
   required_pull_request_reviews {
@@ -66,4 +64,8 @@ resource "github_branch_protection_v3" "branch_protect_homol" {
   depends_on = [
     github_branch.create_branch
   ]
+}
+
+output "repo_url" {
+  value = github_repository.repo_name.html_url
 }
